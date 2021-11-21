@@ -8,7 +8,7 @@ collections:
     share: [twitter, linkedin, facebook, pinterest]
     #subscribe: _subscribe.html
 creative_commons: CC BY
-base_url: https://github.com/zpio
+base_url: https://francisco-data.netlify.app/
 repository_url: https://github.com/zpio/Blog_Francisco_Z
 favicon: images/favicon.png
 #google_analytics: "UA-77306155-2"
