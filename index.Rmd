@@ -1,5 +1,5 @@
 ---
-title: "Blog sobre Ciencia de Datos"
+title: "Blog sobre Data Science"
 site: distill::distill_website
 listing: posts
 ---
