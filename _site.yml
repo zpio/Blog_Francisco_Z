@@ -1,12 +1,34 @@
-name: "Blog"
-title: "Francisco Z Cruz"
+name: "Blog_Francisco_Z_Cruz"
+title: "Francisco Z. Cruz"
 description: |
-  Francisco Z Cruz
-output_dir: "_site"
+  Blog sobre Ciencia de Datos y Machine Learning en R
+collections:
+  posts:
+    #disqus: disqus_lVXDczSNXz
+    share: [twitter, linkedin, facebook, pinterest]
+    #subscribe: _subscribe.html
+creative_commons: CC BY
+base_url: https://github.com/zpio
+repository_url: https://github.com/zpio/Blog_Francisco_Z
+favicon: images/favicon.png
+#google_analytics: "UA-77306155-2"
+rss:
+  full_content: true
 navbar:
+  logo: images/rstudio.png
   right:
-    - text: "Home"
+    - text: "Posts"
       href: index.html
+    #- text: "Gallery"
+    #  href: gallery.html
     - text: "About"
       href: about.html
+    #- text: "Contributors"
+    #  href: contributors.html
+    - icon: fa fa-github
+      href: https://github.com/zpio/
+    - icon: fa fa-linkedin
+      href: https://www.linkedin.com/in/pfzambra/
+    - icon: fa fa-rss
+      href: index.xml
 output: distill::distill_article

@@ -1,5 +1,5 @@
 ---
-title: "Francisco Z Cruz"
+title: "Blog sobre Ciencia de Datos"
 site: distill::distill_website
 listing: posts
 ---

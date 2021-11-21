@@ -1,9 +1,17 @@
 ---
 title: "About this blog"
 description: |
-  Some additional details about the blog
+  ¡Bienvenido a mi blog sobre ciencia de datos!
 ---
+
+¡Bienvenido a mi blog sobre ciencia de datos! Me gusta jugar con los datos e intentar comprender el mundo a través de la estadística y aprendizaje automático. Todo esto es posible con R y RStudio.
+
+Mi perfil de Linkedin: <https://www.linkedin.com/in/pfzambra/>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+knitr::include_graphics("images/rstudio.png")
 ```
