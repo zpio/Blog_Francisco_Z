@@ -3,17 +3,17 @@
     {
       "path": "about.html",
       "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "description": "¡Bienvenido a mi blog sobre ciencia de datos!",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-20T23:48:46-05:00"
+      "contents": "\r\n¡Bienvenido a mi blog sobre ciencia de datos! Me gusta jugar con los datos e intentar comprender el mundo a través de la estadística y aprendizaje automático. Todo esto es posible con R y RStudio.\r\nMi perfil de Linkedin: https://www.linkedin.com/in/pfzambra/\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-11-21T12:30:42-05:00"
     },
     {
       "path": "index.html",
-      "title": "Francisco Z Cruz",
+      "title": "Ultimos Posts - Blog sobre Ciencia de Datos",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-20T23:48:47-05:00"
+      "last_modified": "2021-11-21T12:30:43-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
