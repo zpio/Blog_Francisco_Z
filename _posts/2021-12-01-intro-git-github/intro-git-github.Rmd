@@ -23,21 +23,6 @@ output:
 🦄 Apuntes Introductorio de Git y GitHub
 ===========================================
 
-- [Qué es Git?](#git)
-- [Descargar e Instalar Git](#instalar-git)
-- [Las áreas principales de Git](#areas-git)
-- [Directorio de trabajo (working directory)](#directorio)
-- [Abrir el Intérprete de Comandos cmd](#cmd)
-- [Inicializando un repositorio con `git init`](#git-init)
-- [Inspección del repositorio con `git status`](#git-status)
-- [Agregar archivos o cambios al repositorio con `git add`](#git-add)
-- [Crear un commit del repositorio con `git commit`](#git-commit)
-- [Ver historial de commits con `git log`](#git-log)
-- [Que es GitHub?](#github)
-- [Publicar un repositorio Git en GitHub](#repo-github)
-- [Clonar un repositorio de GitHub](#git-clone)
-- [ Referencia](#referencia)
-
 
 🔥 Qué es Git? <a name="git"></a>
 ---------------------------------
