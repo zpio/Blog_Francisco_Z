@@ -12,7 +12,19 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 21 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Apuntes de Introducción a Git y GitHub</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2021-12-01-intro-git-github</link>
+      <description>Apuntes introductorios de Git y GitHub</description>
+      <category>R</category>
+      <category>Git</category>
+      <category>GitHub</category>
+      <guid>https://francisco-data.netlify.app/posts/2021-12-01-intro-git-github</guid>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2021-12-01-intro-git-github/imagenes/preview-git.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Mapa del Ecuador con highcharter</title>
       <dc:creator>Francisco Zambrano</dc:creator>
