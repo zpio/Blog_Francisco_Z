@@ -35,5 +35,5 @@ output:
   distill::distill_article:
     includes:
       in_header: utterances.html
-preview: static/banner.jpg
+preview: static/site-preview.png
 
