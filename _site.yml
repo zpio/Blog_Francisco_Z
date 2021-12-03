@@ -1,4 +1,4 @@
-name: "Blog_Francisco_Z_Cruz"
+name: "Blog_Francisco_Z"
 title: "Francisco Z"
 description: |
   Blog sobre Ciencia de Datos y Machine Learning en R
@@ -31,4 +31,9 @@ navbar:
       href: https://www.linkedin.com/in/pfzambra/
     - icon: fa fa-rss
       href: index.xml
-output: distill::distill_article
+output: 
+  distill::distill_article:
+    includes:
+      in_header: utterances.html
+preview: static/banner.jpg
+
