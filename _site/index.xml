@@ -12,7 +12,20 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 01 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Datos de Google Trends con gtrendsR</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2021-12-04-googletrends</link>
+      <description>gtrendsR proporciona una interfaz para obtener y mostrar información de Google Trends.</description>
+      <category>R</category>
+      <category>Google-Trends</category>
+      <category>gtrendsR</category>
+      <category>timetk</category>
+      <guid>https://francisco-data.netlify.app/posts/2021-12-04-googletrends</guid>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2021-12-04-googletrends/images/preview_google.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Apuntes de Introducción a Git y GitHub</title>
       <dc:creator>Francisco Zambrano</dc:creator>

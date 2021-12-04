@@ -7,6 +7,7 @@ collections:
     #disqus: disqus_lVXDczSNXz
     share: [twitter, linkedin, facebook, pinterest]
     #subscribe: _subscribe.html
+    citations: false
 creative_commons: CC BY
 base_url: https://francisco-data.netlify.app/
 repository_url: https://github.com/zpio/Blog_Francisco_Z

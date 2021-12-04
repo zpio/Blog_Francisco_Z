@@ -1,0 +1,227 @@
+---
+title: "Datos de Google Trends con gtrendsR"
+description: |
+  gtrendsR proporciona una interfaz para obtener y mostrar información de Google Trends.
+author:
+  - name: Francisco Zambrano
+    url: https://www.linkedin.com/in/pfzambra/
+date: 2021-12-04
+categories:
+  - R
+  - Google-Trends
+  - gtrendsR
+  - timetk
+preview: images/preview_google.png
+output: 
+  distill::distill_article:
+    highlight: haddock
+    highlight_downlit: false
+    self_contained: false
+    toc: true
+---
+
+**gtrendsR** proporciona una interfaz para recuperar y mostrar información de Google Trends.
+
+Muestra las tendencias (number of hits) a lo largo del tiempo, así como la representación geográfica de los resultados.
+
+Visita el repositorio en github: <https://github.com/PMassicotte/gtrendsR>
+
+1. Instalar los paquetes a utilizar
+=============================================
+
+```bash
+install.packages(c("gtrendsR", "timetk", "tidyverse", "lubridate"))
+```
+
+```{r message=FALSE, warning=FALSE}
+library(gtrendsR)
+library(tidyverse)
+library(timetk)
+library(lubridate)
+```
+
+2. Busqueda sobre un término
+====================================
+
+```bash
+?gtrendsR::gtrends()
+```
+
+Configurar los terminos de busqueda:
+
+```{r message=FALSE, warning=FALSE}
+search_term <- "data science"
+location    <- "US"
+time        <- "all"
+```
+
+```{r message=FALSE, warning=FALSE}
+gtrends_list <- gtrendsR::gtrends(
+    keyword = search_term, 
+    geo     = location, 
+    time    = time
+)
+```
+
+```{r}
+gtrends_list %>% names()
+```
+
+```{r}
+library(rmarkdown)
+
+paged_table(gtrends_list %>%
+    pluck("interest_over_time")
+)
+```
+
+
+3. Guardar los datos (opcional)
+==============================================
+
+```{r message=FALSE, warning=FALSE}
+gtrends_list %>% write_rds("data/gtrends_list.rds")
+```
+
+```{r message=FALSE, warning=FALSE}
+gtrends_list <- read_rds("data/gtrends_list.rds")
+```
+
+
+4. Graficar serie tiempo con timetk
+=============================================
+
+Para realizar una grafica interactiva usar libreria timetk o plotly.
+
+```{r message=FALSE, warning=FALSE}
+gtrends_list %>%
+    pluck("interest_over_time") %>%
+    plot_time_series(date, hits)
+```
+
+
+5. Limpieza de Datos
+=======================================
+
+```{r message=FALSE, warning=FALSE}
+gtrends_interest_over_time_tbl <- gtrends_list %>%
+    pluck("interest_over_time") %>%
+    as_tibble() %>%
+    select(date, hits) %>%
+    mutate(hits = ifelse(hits == 0, NA, hits)) %>%
+    mutate(hits = ts_impute_vec(hits, period = 12))
+
+paged_table(gtrends_interest_over_time_tbl)
+```
+
+```{r}
+gtrends_interest_over_time_tbl %>%
+    plot_time_series(date, hits)
+```
+
+```{r}
+data_prepared_tbl <- gtrends_interest_over_time_tbl %>%
+    rename(value = hits)
+
+paged_table(data_prepared_tbl)
+```
+
+
+
+6. Busqueda mas de un término
+===============================================
+
+```{r}
+search_terms <- c(
+    "aws",
+    "azure",
+    "google cloud"
+)
+```
+
+```{r}
+gtrends_lst <- search_terms %>%
+    gtrends(geo = "US", time = "all")
+```
+
+```{r}
+paged_table(
+  gtrends_lst %>% 
+    pluck("interest_over_time")
+)
+```
+
+```{r message=FALSE, warning=FALSE}
+gtrends_lst %>%
+    pluck("interest_over_time") %>%
+    mutate(hits = as.numeric(hits)) %>%
+    as_tibble() %>%
+    group_by(keyword) %>% 
+    plot_time_series(date, hits, .color_var=keyword)
+```
+
+```{r message=FALSE, warning=FALSE}
+library(plotly)
+library(tidyquant)
+
+plot <- gtrends_lst %>% 
+    pluck("interest_over_time") %>% 
+    mutate(hits = as.numeric(hits)) %>%
+    as_tibble() %>%
+    ggplot(aes(date, hits, color = keyword)) +
+    geom_line() +
+    theme_tq() +
+    scale_color_tq() +
+    geom_smooth(span = 0.3, se = FALSE) +
+    labs(title = "Keyword Trends - US - Over Time")
+
+ggplotly(plot)
+```
+
+
+7. Tendencia por Geografia
+===============================================
+
+```{r}
+paged_table(
+  gtrends_lst %>% 
+    pluck("interest_by_region") %>%
+    as_tibble()
+)
+```
+
+
+```{r}
+states_tbl <- map_data("state") %>%
+    as_tibble() %>%
+    mutate(region = str_to_title(region))
+
+paged_table(states_tbl)
+```
+
+
+```{r message=FALSE, warning=FALSE}
+state_trends_tbl <- gtrends_lst %>%
+    pluck("interest_by_region") %>%
+    left_join(states_tbl, by = c("location" = "region")) %>%
+    as_tibble()
+
+paged_table(state_trends_tbl)
+```
+
+
+```{r}
+plot_g <- state_trends_tbl %>%
+        ggplot(aes(long, lat)) +
+        geom_polygon(aes(group = group, fill = hits)) +
+        coord_map("albers", at0 = 45.5, lat1 = 29.5) +
+        scale_fill_viridis_c() +
+        theme_tq() +
+        facet_wrap(~ keyword, ncol = 1) +
+        labs(title = "Keyword Trends - US")
+
+ggplotly(plot_g)
+```
+
+
+
