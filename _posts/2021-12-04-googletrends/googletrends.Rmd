@@ -40,14 +40,12 @@ library(timetk)
 library(lubridate)
 ```
 
-2. Busqueda sobre un término
+2. Configurar el término de busqueda
 ====================================
 
 ```bash
 ?gtrendsR::gtrends()
 ```
-
-Configurar los terminos de busqueda:
 
 ```{r message=FALSE, warning=FALSE}
 search_term <- "data science"
@@ -128,7 +126,7 @@ paged_table(data_prepared_tbl)
 
 
 
-6. Busqueda mas de un término
+6. Búsqueda de varios términos
 ===============================================
 
 ```{r}
