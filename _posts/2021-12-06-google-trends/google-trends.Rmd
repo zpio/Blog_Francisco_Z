@@ -20,6 +20,8 @@ output:
     toc: true
 ---
 
+![](images/preview_google.png)
+
 **gtrendsR** proporciona una interfaz para recuperar y mostrar información de Google Trends.
 
 Muestra las tendencias (number of hits) a lo largo del tiempo, así como la representación geográfica de los resultados.
