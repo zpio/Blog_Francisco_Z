@@ -81,7 +81,7 @@ paged_table(gtrends_list %>%
 gtrends_list %>% write_rds("data/gtrends_list.rds")
 ```
 
-```{r message=FALSE, warning=FALSE}
+```bash
 gtrends_list <- read_rds("data/gtrends_list.rds")
 ```
 
