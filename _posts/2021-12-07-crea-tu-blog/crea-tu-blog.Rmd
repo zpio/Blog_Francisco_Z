@@ -42,7 +42,7 @@ Tambien te recomiendo otro tutorial con una explicacion con videos:
 <https://yuzar-blog.netlify.app/posts/2020-12-26-how-to-create-a-blog-or-a-website-in-r-with-distill-package/>
 
 
-**Paso 1: Instalar en Paquete de Distill**
+**Paso 1: Instalar el Paquete de Distill**
 
 Abrir una sesión de Rstudio e instalar el paquete Distill
 
@@ -97,7 +97,7 @@ Dentro de la carpeta `_post` se almacenan todos los posts:
 
 ![](images/9.png)
 
-Una vez creado el post debe editarlo con tu propio contenido en rmarkdown y ejecutarlo (Knit) para ver como va quedando:
+Una vez creado el post debe editarlo con tu propio contenido en rmarkdown y ejecutarlo (Knit).
 
 ![](images/14.png)
 
@@ -161,15 +161,13 @@ navbar:
 output: distill::distill_article
 ```
 
-Una vez configurado `_site.yml` ejecute (knit) del post si no ha hecho y vuelva a ejecutar **Build Website**:
+Una vez configurado `_site.yml` ejecute (knit) del post, si no lo ha hecho, y vuelva a ejecutar **Build Website**:
 
 ![](images/15.png)
 
 **Paso 7: Crear el repositorio en Git**
 
-En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (si estamos en windows) ejecutar los comandos de git.
-
-Ejecutamos los primeros comandos:
+En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (en windows) y ejecutar los primeros comandos de git:
 
 ```bash
 git init
@@ -191,7 +189,7 @@ git branch -M main
 
 ![](images/18.png)
 
-En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (si estamos en windows) ejecutar los siguientes comandos de git para subir nuestro proyecto a GitHub:
+En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (windows) y ejecutar los siguientes comandos de git para subir nuestro proyecto a GitHub:
 
 ```bash
 git remote add origin https://github.com/zpio/mi-blog-personal.git
@@ -202,14 +200,14 @@ git push -u origin main
 
 ![](images/19.png)
 
-Agreguemos un archivo README.md como nos recomienda GitHub.
+Agreguemos un archivo `README.md` como nos recomienda GitHub.
 
 También debemos agregar un archivo sin extencion llamado `.gitignore`:
 
 ![](images/20-1.png)
 
 
-En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (si estamos en windows) ejecutar los siguientes comandos de git para traer el readme del github a nuestra maquina:
+En el menu **Tools** de Rstudio escoja la opcion **Shell** para abrir el cmd (windows) y ejecutar los siguientes comandos de git para traer el readme del github a nuestro local:
 
 ```bash
 git pull
@@ -242,11 +240,11 @@ Escoger el repositorio del proyecto del blog:
 
 ![](images/23.png)
 
-Configurar el **Publish directory** con el texto **_site**:
+Configurar el **Publish directory** con el texto `_site`:
 
 ![](images/24.png)
 
-Luego, ejecutar el deploy.
+Luego, ejecutar el **deploy**.
 
 Listo, ya está creado el sitio web con una url que se puede personalizar.
 

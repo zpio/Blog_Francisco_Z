@@ -2162,7 +2162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><a href="https://rstudio.github.io/distill/" class="uri">https://rstudio.github.io/distill/</a></p>
 <p>Tambien te recomiendo otro tutorial con una explicacion con videos:</p>
 <p><a href="https://yuzar-blog.netlify.app/posts/2020-12-26-how-to-create-a-blog-or-a-website-in-r-with-distill-package/" class="uri">https://yuzar-blog.netlify.app/posts/2020-12-26-how-to-create-a-blog-or-a-website-in-r-with-distill-package/</a></p>
-<p><strong>Paso 1: Instalar en Paquete de Distill</strong></p>
+<p><strong>Paso 1: Instalar el Paquete de Distill</strong></p>
 <p>Abrir una sesión de Rstudio e instalar el paquete Distill</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">install.packages</span>(<span class="st">&quot;distill&quot;</span>)</a></code></pre></div>
 <p><strong>Paso 2: Crear un proyecto de Distill Blog en Rstudio</strong></p>
@@ -2186,7 +2186,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><img src="images/8.PNG" /></p>
 <p>Dentro de la carpeta <code>_post</code> se almacenan todos los posts:</p>
 <p><img src="images/9.PNG" /></p>
-<p>Una vez creado el post debe editarlo con tu propio contenido en rmarkdown y ejecutarlo (Knit) para ver como va quedando:</p>
+<p>Una vez creado el post debe editarlo con tu propio contenido en rmarkdown y ejecutarlo (Knit).</p>
 <p><img src="images/14.PNG" /></p>
 <p><img src="images/15.PNG" /></p>
 <p><strong>Paso 5: Personalizar el index.Rmd y about.Rmd e imágenes</strong></p>
@@ -2231,11 +2231,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <a class="sourceLine" id="cb3-30" title="30">    <span class="ex">-</span> icon: fa fa-rss</a>
 <a class="sourceLine" id="cb3-31" title="31">      <span class="ex">href</span>: index.xml</a>
 <a class="sourceLine" id="cb3-32" title="32"><span class="ex">output</span>: distill::distill_article</a></code></pre></div>
-<p>Una vez configurado <code>_site.yml</code> ejecute (knit) del post si no ha hecho y vuelva a ejecutar <strong>Build Website</strong>:</p>
+<p>Una vez configurado <code>_site.yml</code> ejecute (knit) del post, si no lo ha hecho, y vuelva a ejecutar <strong>Build Website</strong>:</p>
 <p><img src="images/15.PNG" /></p>
 <p><strong>Paso 7: Crear el repositorio en Git</strong></p>
-<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (si estamos en windows) ejecutar los comandos de git.</p>
-<p>Ejecutamos los primeros comandos:</p>
+<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (en windows) y ejecutar los primeros comandos de git:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">git</span> init</a></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">git</span> add .</a></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">git</span> commit -m <span class="st">&quot;creacion del blog&quot;</span></a></code></pre></div>
@@ -2243,14 +2242,14 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><strong>Paso 8: Crear un repositorio en GitHub</strong></p>
 <p><img src="images/17.PNG" /></p>
 <p><img src="images/18.PNG" /></p>
-<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (si estamos en windows) ejecutar los siguientes comandos de git para subir nuestro proyecto a GitHub:</p>
+<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (windows) y ejecutar los siguientes comandos de git para subir nuestro proyecto a GitHub:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">git</span> remote add origin https://github.com/zpio/mi-blog-personal.git</a></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="fu">git</span> push -u origin main</a></code></pre></div>
 <p><img src="images/19.PNG" /></p>
-<p>Agreguemos un archivo README.md como nos recomienda GitHub.</p>
+<p>Agreguemos un archivo <code>README.md</code> como nos recomienda GitHub.</p>
 <p>También debemos agregar un archivo sin extencion llamado <code>.gitignore</code>:</p>
 <p><img src="images/20-1.PNG" /></p>
-<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (si estamos en windows) ejecutar los siguientes comandos de git para traer el readme del github a nuestra maquina:</p>
+<p>En el menu <strong>Tools</strong> de Rstudio escoja la opcion <strong>Shell</strong> para abrir el cmd (windows) y ejecutar los siguientes comandos de git para traer el readme del github a nuestro local:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="fu">git</span> pull</a></code></pre></div>
 <p>Luego ejecute los siguientes comandos para subir el arhivo .gitignore a github:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="fu">git</span> add .</a></code></pre></div>
@@ -2263,9 +2262,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <p><img src="images/22.PNG" /></p>
 <p>Escoger el repositorio del proyecto del blog:</p>
 <p><img src="images/23.PNG" /></p>
-<p>Configurar el <strong>Publish directory</strong> con el texto **_site**:</p>
+<p>Configurar el <strong>Publish directory</strong> con el texto <code>_site</code>:</p>
 <p><img src="images/24.PNG" /></p>
-<p>Luego, ejecutar el deploy.</p>
+<p>Luego, ejecutar el <strong>deploy</strong>.</p>
 <p>Listo, ya está creado el sitio web con una url que se puede personalizar.</p>
 <p><img src="images/25.PNG" /></p>
 <p><strong>Paso 10: Actualizar la <code>base_url</code> y <code>repository_url</code></strong></p>
