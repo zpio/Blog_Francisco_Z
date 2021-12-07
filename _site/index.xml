@@ -12,7 +12,20 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Crea tu blog con el paquete Distill de R</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2021-12-07-crea-tu-blog</link>
+      <description>Como crear tu propio blog con Distill, Git GitHub y desplegarlo con Netlify.</description>
+      <category>R</category>
+      <category>Distill</category>
+      <category>Git</category>
+      <category>Netlify</category>
+      <guid>https://francisco-data.netlify.app/posts/2021-12-07-crea-tu-blog</guid>
+      <pubDate>Tue, 07 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2021-12-07-crea-tu-blog/images/preview_distill.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Datos de Google Trends con gtrendsR</title>
       <dc:creator>Francisco Zambrano</dc:creator>
