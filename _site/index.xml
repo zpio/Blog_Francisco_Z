@@ -12,7 +12,19 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 14 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Docker para Ciencia Datos. Parte 2</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2021-12-20-dockerizar-shiny</link>
+      <description>Como dockerizar una Shiny App</description>
+      <category>R</category>
+      <category>Docker</category>
+      <category>Shinny</category>
+      <guid>https://francisco-data.netlify.app/posts/2021-12-20-dockerizar-shiny</guid>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2021-12-20-dockerizar-shiny/images/preview_docker2.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Docker para Ciencia Datos. Parte 1</title>
       <dc:creator>Francisco Zambrano</dc:creator>
