@@ -60,6 +60,8 @@ Ademas existen otros archivos que se explica mas adelante. Por el momento, los a
 
 ![](images/4.png)
 
+![](images/dockerfile.png)
+
 En la carpeta raiz del proyecto debe tener un archivo **Dockerfile**. Este archivo contiene las intrucciones para contruir la imagen.
 
 Los contenedores se contruyen a partir de imagenes base, contextualizado un poco, una imagen base para una shiny app pueden ser: **el programa R** mas las **bibliotecas de linux**  mas el paquete **Shiny**. En el archivo Dockerfile se debe especificar la imagen base a usar. Por suerte, existen muchas **imagenes bases** ya construidas para proyectos con **Shiny** y ciertos paquetes de **R** ya listo para descargar desde el repositorio de [**Dockerhub**](https://hub.docker.com/).
