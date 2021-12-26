@@ -10,6 +10,7 @@ collections:
     citations: false
 creative_commons: CC BY
 base_url: https://francisco-data.netlify.app/
+output_dir: "_site"
 repository_url: https://github.com/zpio/Blog_Francisco_Z
 favicon: images/favicon.png
 #google_analytics: "UA-77306155-2"
