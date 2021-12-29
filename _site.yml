@@ -1,5 +1,6 @@
 name: "Blog_Francisco_Z"
 title: "Francisco Z"
+theme: theme.css
 description: |
   Blog sobre Ciencia de Datos y Machine Learning en R
 collections:
