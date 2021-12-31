@@ -12,7 +12,19 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>APIs y Ciencia de Datos. Parte 1</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2021-12-30-api-data-science-1</link>
+      <description>Introducción a las APIs con Postman</description>
+      <category>R</category>
+      <category>API</category>
+      <category>Postman</category>
+      <guid>https://francisco-data.netlify.app/posts/2021-12-30-api-data-science-1</guid>
+      <pubDate>Fri, 31 Dec 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2021-12-30-api-data-science-1/images/preview_api1.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Docker para Ciencia Datos. Parte 4</title>
       <dc:creator>Francisco Zambrano</dc:creator>
