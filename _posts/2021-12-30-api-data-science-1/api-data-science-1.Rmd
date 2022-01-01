@@ -16,75 +16,97 @@ output:
     highlight: haddock
     highlight_downlit: false
     self_contained: false
-    toc: true
+    #toc: true
 ---
 
 ![](images/preview_api1.png)
 
-**👉 API**
+**API**
+==========================================
 
-Una **Application Programming Interface** (**Interfaz** de programación de aplicaciones), abreviado como **API**, es un conjunto de **subrutinas**, **funciones** y **procedimientos** (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con aquel. También el propio software puede crear una API para que pueda interactuar consigo mismo.
-
-Por ejemplo: El Lenguaje de Programación de **Python** ofrece sus funciones y métodos para realizar tareas predefinidas, es decir, Python nos ofrece una API para poder interactuar con un software.
-
-**👉 API REST**
-
-Las **API REST** son un tipo de API específicas para crear **aplicaciones WEB** o **móviles** que se conecten a un servidor vía **CLIENTE-SERVIDOR**. 
-
-Las API REST permite exponer **funciones** para que un **cliente** (navegador, aplicación móvil) se conecten a nuestra aplicación del Backend.
-
-Las **API REST** se basan en el **protocolo http** para exponer su arquitectura.
+Una **Interfaz de programación de aplicaciones**(**API**), es un conjunto de **subrutinas**, **funciones** y **procedimientos** (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con el. Las API REST son un tipo de API utilizadas en la WEB.
 
 ![](images/api edteam.jpg)
 
-**👉 PROTOCOLO HTTP**
+**API REST**
+==========================================
 
-Un protocolo es un conjunto de reglas a seguir, este caso, un **protocolo http** es el protocolo de la web que permite intercambiar información en la web (CLIENTE – SERVIDOR) mediante un serie de **reglas estándares**.
+Las **API REST** son un tipo de API específicas con el objetivo de garantizar una comunicación fluida entre el **cliente** y el **servidor**. Puede pensar en el cliente (**aplicaciones WEB** o **móviles**) como el **front-end** y el servidor como el **back-end**.
 
-Un **servidor** espera peticiones, si la petición del cliente contiene le protocolo correcto, entonces, el servidor devuelve la información solicitada.
+La comunicación entre el cliente y el servidor no suele ser directa. Por lo tanto, se usa una interfaz (API) como intermediario entre el cliente y el servidor.
+
+**REST** (Transferencia de Estado Representacional) es un estilo de arquitectura de software para guiar el diseño de arquitectura para la web.
+
+Las **API REST** se basan en el **protocolo HTTP (Hypertext Transfer Protocol)** para exponer su arquitectura.
+
+Cuando escribe **`http://example.com`** en un navegador, el **"http"** le dice al navegador que use las reglas de HTTP cuando se comunique con el servidor.
+
+**PROTOCOLO HTTP**
+==========================================
+
+Un protocolo es un conjunto de reglas a seguir, este caso, un **protocolo HTTP** es el protocolo de la web que permite intercambiar información en la web (CLIENTE – SERVIDOR) mediante un serie de **reglas estándares**.
+
+El **servidor** espera peticiones, si la petición del cliente contiene le protocolo correcto, entonces, el servidor devuelve la información solicitada.
 
 El **Protocolo Http** es un protocolo usado por la arquitectura API REST.
 
 
-**👉 METODOS DE PETICION HTTP**
+**METODOS o VERBOS HTTP**
+==========================================
 
-Para hacer peticiones a servidores se utilizan métodos o **verbos HTTP** estándares que sirve para especificar el tipo de petición al servidor. 
+Para hacer peticiones o acciones a un servidor se utilizan **métodos** o **verbos HTTP** estándares.
 
-A continuación se listan los tipos de peticiones mas frecuentes e importantes:
+A continuación se listan los tipos de peticiones mas frecuentes:
 
-**GET**
+- **GET**
 
 Esta petición sirve para obtener información de parte del servidor. Por ejemplo: obtener listados de personas, películas, etc.
 
-**POST**
+- **POST**
 
 Este método sirve para enviar información, desde el cliente al servidor, para crear nuevos recursos. Por ejemplos: usuarios, comentarios, likes, etc.
 
-**PUT**
+- **PUT**
 
 Este método sirve para actualizar un recurso ya existente, cambiándoles las propiedades.
 
-**DELETE**
+- **DELETE**
 
 Este método sirve para borrar un recurso.
 
-**PATCH**
+- **PATCH**
 
 Este método sirve para actualizar parcialmente un recurso. PUT en teoría actualiza todo el recurso, pero PATCH solo una parte del recurso.
 
-**HEADER**
-
-Este método solo sirve para consultar la existencia de un recurso 
-
-**OPTIONS**
+- **OPTIONS**
 
 Este método lo utilizan los navegadores de forma nativa. Mediante el método OPTIONS los navegadores validan si un dominio puede recibir o hacer peticiones desde otro dominio. Sirve para evitar que hagan ataques tipo CORS (Cross-Origin Resource Sharing).
 
-**👉 CODIGOS DE RESPUESTA HTTP**
 
-Cuando se hace una petición al servidor, este nos envia unos códigos de respuesta estándares para determinar el estado de solicitud procesada.
+**HEADERS HTTP**
+==========================================
 
-Estos son los códigos de respuestas más frecuentes e importantes y están agrupados en **intervalos de 100**.
+Las cabeceras es un espacio destinado para enviar metadata en la petición HTTP, por ejemplo, enviar tokens de autenticación.
+
+
+**BODY HTTP**
+==========================================
+
+El cuerpo de la petición contiene los datos que el cliente desea enviar al servidor.
+
+Estas cuatro partes (URL, method, headers, y body) constituyen una solicitud HTTP completa.
+
+
+**RESPUESTA HTTP**
+==========================================
+
+Cuando se hace una petición o solicitud HTTP al servidor, este intenta cumplir con la solicitud y enviar una respuesta al cliente. El servidor envía un **código de respuesta**, **header** y **body**.
+
+este envía unos códigos de respuesta estándares para determinar el estado de solicitud procesada. 
+
+Los **códigos de respuesta** son números de tres dígitos para determinar el estado de solicitud procesada.
+
+Estos son los códigos de respuestas más frecuentes y están agrupados en **intervalos de 100**.
 
 ![](images/cod-resp1.png)
 
@@ -98,12 +120,9 @@ Estos son los códigos de respuestas más frecuentes e importantes y están agru
 
 ![](images/cod-resp2.jpg)
 
-**👉 CABECERAS EN PROTOCOLOS HTTP**
+**FORMATO JSON**
+==========================================
 
-Las cabeceras es un espacio destinado para enviar metadata en la petición HTTP, por ejemplo, enviar tokens de autenticación.
-
-
-**👉 FORMATO JSON**
 
 **JSON** son las siglas de JavaScript Object Notation. JSON se ha convertido en la forma principal en que los datos se transportan a través de las API. La mayoría de las API enviarán sus respuestas en formato JSON.
 JSON tiene el formato de una serie de pares clave-valor entre llaves:
@@ -114,11 +133,55 @@ JSON tiene el formato de una serie de pares clave-valor entre llaves:
     "last_name": "Zambrano"
 }
 ```
-
 ![](images/json.jpg)
 
 
-**👉 QUE ES POSTMAN?**
+**API KEY**
+==========================================
+
+La **API Key Authentication** es un código que se utiliza para identificar y autenticar una aplicación o un usuario. También actúan como un identificador único y proporcionan un token secreto con fines de autenticación.
+
+Las claves de API se utilizan comúnmente para controlar la utilización de la interfaz de la API y realizar un seguimiento de cómo se utiliza. Esto suele ser una medida de precaución para evitar abusos o usos malintencionados. 
+
+Cuando el cliente se autentica con la clave API, el servidor sabe que debe permitir el acceso del cliente a los datos, limitando las funciones administrativas.
+
+En muchas ocaciones se coloca la clave en el encabezado de la Autorización. Otro forma, es agregar la clave a la URL por ejemplo:
+
+**`http://example.com?api_key=my_secret_key`**
+
+
+**ENDPOINTS**
+==========================================
+
+Todo lo que hay en la web son **recursos**. Por ejemplo, cuando accedemos a una pagina web le solicitamos al servidor que nos envie el `index.html`(es un recurso), index.html internamente solicita el `styles.css` (otro recurso), las imágenes de la pagina web tambien son recursos. 
+
+Una característica importante en las API es que cada recurso debe tener una **URL única** y que cada recurso esté representado por un formato especifico (xml, json, jpg, etc) pero puede cambiar de formato tambien.
+
+Cuando los desarrolladores diseñan una **API REST** asigan cada recurso a una **URL**.
+
+En una API REST típica, un recurso tendrá dos patrones de URL asignados:
+
+El primer patrón es el plural del nombre del recurso, como **`/orders`**. 
+
+El segundo patrón es el plural del nombre del recurso más un identificador único para especificar un recurso único, como **`/orders/<order_id>`**, donde `<order_id>` es el identificador único de un pedido. 
+
+Estos dos patrones de URL constituyen los primeros puntos finales (**ENDPOINTS**) que admitirá nuestra API. 
+
+Estos se denominan puntos finales simplemente porque van al final de la URL, como en:
+
+**`http://example.com/<endpoint_goes_here>`**
+
+Ahora que le asignamos URL al recurso hay que indicar que acciones puede realizar el cliente mediante los verbos HTTP (GET, POST, PUT o DELETE) en la solicitud. Por ejemplo:
+
+- GET/orders -> Lista de pedidos
+- POST/orders	-> Realizar un nuevo pedido
+- GET/orders/1 -> Obtener detalles para el pedido 1
+- PUT/orders/1 ->	Actualizar pedido 1
+- DELETE/orders/1 -> Cancelar pedido 1
+
+
+**QUE ES POSTMAN?**
+==========================================
 
 ![](images/postman-logo.png)
 
@@ -131,7 +194,7 @@ Es una plataforma para testear APIs y crear APIs se puede usar de forma local en
 **<https://postman-echo.com>**
 
 
-**👉 HACIENDO PETICIONES CON POSTMAN**
+**HACIENDO PETICIONES CON POSTMAN**
 
 Como primer paso hay que crearse una cuenta en **Postman**, es muy facil y gratis.
 

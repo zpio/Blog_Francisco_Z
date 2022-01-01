@@ -117,7 +117,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","preview","output","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["APIs y Ciencia de Datos. Parte 1"]},{"type":"character","attributes":{},"value":["Introducción a las APIs con Postman"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Zambrano"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/pfzambra/"]}]}]},{"type":"character","attributes":{},"value":["2021-12-31"]},{"type":"character","attributes":{},"value":["R","API","Postman"]},{"type":"character","attributes":{},"value":["images/preview_api1.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","highlight_downlit","self_contained","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["https://francisco-data.netlify.app/posts/2021-12-30-api-data-science-1/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","preview","output","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["APIs y Ciencia de Datos. Parte 1"]},{"type":"character","attributes":{},"value":["Introducción a las APIs con Postman"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Francisco Zambrano"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/pfzambra/"]}]}]},{"type":"character","attributes":{},"value":["2021-12-31"]},{"type":"character","attributes":{},"value":["R","API","Postman"]},{"type":"character","attributes":{},"value":["images/preview_api1.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","highlight_downlit","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://francisco-data.netlify.app/posts/2021-12-30-api-data-science-1/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2477,60 +2477,100 @@ d-appendix d-footnote-list a.footnote-backlink {
 
 <div class="d-article">
 <p><img src="images/preview_api1.png" /></p>
-<p><strong>👉 API</strong></p>
-<p>Una <strong>Application Programming Interface</strong> (<strong>Interfaz</strong> de programación de aplicaciones), abreviado como <strong>API</strong>, es un conjunto de <strong>subrutinas</strong>, <strong>funciones</strong> y <strong>procedimientos</strong> (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con aquel. También el propio software puede crear una API para que pueda interactuar consigo mismo.</p>
-<p>Por ejemplo: El Lenguaje de Programación de <strong>Python</strong> ofrece sus funciones y métodos para realizar tareas predefinidas, es decir, Python nos ofrece una API para poder interactuar con un software.</p>
-<p><strong>👉 API REST</strong></p>
-<p>Las <strong>API REST</strong> son un tipo de API específicas para crear <strong>aplicaciones WEB</strong> o <strong>móviles</strong> que se conecten a un servidor vía <strong>CLIENTE-SERVIDOR</strong>.</p>
-<p>Las API REST permite exponer <strong>funciones</strong> para que un <strong>cliente</strong> (navegador, aplicación móvil) se conecten a nuestra aplicación del Backend.</p>
-<p>Las <strong>API REST</strong> se basan en el <strong>protocolo http</strong> para exponer su arquitectura.</p>
+<h1 id="api"><strong>API</strong></h1>
+<p>Una <strong>Interfaz de programación de aplicaciones</strong>(<strong>API</strong>), es un conjunto de <strong>subrutinas</strong>, <strong>funciones</strong> y <strong>procedimientos</strong> (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con el. Las API REST son un tipo de API utilizadas en la WEB.</p>
 <p><img src="images/api%20edteam.jpg" /></p>
-<p><strong>👉 PROTOCOLO HTTP</strong></p>
-<p>Un protocolo es un conjunto de reglas a seguir, este caso, un <strong>protocolo http</strong> es el protocolo de la web que permite intercambiar información en la web (CLIENTE – SERVIDOR) mediante un serie de <strong>reglas estándares</strong>.</p>
-<p>Un <strong>servidor</strong> espera peticiones, si la petición del cliente contiene le protocolo correcto, entonces, el servidor devuelve la información solicitada.</p>
+<h1 id="api-rest"><strong>API REST</strong></h1>
+<p>Las <strong>API REST</strong> son un tipo de API específicas con el objetivo de garantizar una comunicación fluida entre el <strong>cliente</strong> y el <strong>servidor</strong>. Puede pensar en el cliente (<strong>aplicaciones WEB</strong> o <strong>móviles</strong>) como el <strong>front-end</strong> y el servidor como el <strong>back-end</strong>.</p>
+<p>La comunicación entre el cliente y el servidor no suele ser directa. Por lo tanto, se usa una interfaz (API) como intermediario entre el cliente y el servidor.</p>
+<p><strong>REST</strong> (Transferencia de Estado Representacional) es un estilo de arquitectura de software para guiar el diseño de arquitectura para la web.</p>
+<p>Las <strong>API REST</strong> se basan en el <strong>protocolo HTTP (Hypertext Transfer Protocol)</strong> para exponer su arquitectura.</p>
+<p>Cuando escribe <strong><code>http://example.com</code></strong> en un navegador, el <strong>“http”</strong> le dice al navegador que use las reglas de HTTP cuando se comunique con el servidor.</p>
+<h1 id="protocolo-http"><strong>PROTOCOLO HTTP</strong></h1>
+<p>Un protocolo es un conjunto de reglas a seguir, este caso, un <strong>protocolo HTTP</strong> es el protocolo de la web que permite intercambiar información en la web (CLIENTE – SERVIDOR) mediante un serie de <strong>reglas estándares</strong>.</p>
+<p>El <strong>servidor</strong> espera peticiones, si la petición del cliente contiene le protocolo correcto, entonces, el servidor devuelve la información solicitada.</p>
 <p>El <strong>Protocolo Http</strong> es un protocolo usado por la arquitectura API REST.</p>
-<p><strong>👉 METODOS DE PETICION HTTP</strong></p>
-<p>Para hacer peticiones a servidores se utilizan métodos o <strong>verbos HTTP</strong> estándares que sirve para especificar el tipo de petición al servidor.</p>
-<p>A continuación se listan los tipos de peticiones mas frecuentes e importantes:</p>
-<p><strong>GET</strong></p>
+<h1 id="metodos-o-verbos-http"><strong>METODOS o VERBOS HTTP</strong></h1>
+<p>Para hacer peticiones o acciones a un servidor se utilizan <strong>métodos</strong> o <strong>verbos HTTP</strong> estándares.</p>
+<p>A continuación se listan los tipos de peticiones mas frecuentes:</p>
+<ul>
+<li><strong>GET</strong></li>
+</ul>
 <p>Esta petición sirve para obtener información de parte del servidor. Por ejemplo: obtener listados de personas, películas, etc.</p>
-<p><strong>POST</strong></p>
+<ul>
+<li><strong>POST</strong></li>
+</ul>
 <p>Este método sirve para enviar información, desde el cliente al servidor, para crear nuevos recursos. Por ejemplos: usuarios, comentarios, likes, etc.</p>
-<p><strong>PUT</strong></p>
+<ul>
+<li><strong>PUT</strong></li>
+</ul>
 <p>Este método sirve para actualizar un recurso ya existente, cambiándoles las propiedades.</p>
-<p><strong>DELETE</strong></p>
+<ul>
+<li><strong>DELETE</strong></li>
+</ul>
 <p>Este método sirve para borrar un recurso.</p>
-<p><strong>PATCH</strong></p>
+<ul>
+<li><strong>PATCH</strong></li>
+</ul>
 <p>Este método sirve para actualizar parcialmente un recurso. PUT en teoría actualiza todo el recurso, pero PATCH solo una parte del recurso.</p>
-<p><strong>HEADER</strong></p>
-<p>Este método solo sirve para consultar la existencia de un recurso</p>
-<p><strong>OPTIONS</strong></p>
+<ul>
+<li><strong>OPTIONS</strong></li>
+</ul>
 <p>Este método lo utilizan los navegadores de forma nativa. Mediante el método OPTIONS los navegadores validan si un dominio puede recibir o hacer peticiones desde otro dominio. Sirve para evitar que hagan ataques tipo CORS (Cross-Origin Resource Sharing).</p>
-<p><strong>👉 CODIGOS DE RESPUESTA HTTP</strong></p>
-<p>Cuando se hace una petición al servidor, este nos envia unos códigos de respuesta estándares para determinar el estado de solicitud procesada.</p>
-<p>Estos son los códigos de respuestas más frecuentes e importantes y están agrupados en <strong>intervalos de 100</strong>.</p>
+<h1 id="headers-http"><strong>HEADERS HTTP</strong></h1>
+<p>Las cabeceras es un espacio destinado para enviar metadata en la petición HTTP, por ejemplo, enviar tokens de autenticación.</p>
+<h1 id="body-http"><strong>BODY HTTP</strong></h1>
+<p>El cuerpo de la petición contiene los datos que el cliente desea enviar al servidor.</p>
+<p>Estas cuatro partes (URL, method, headers, y body) constituyen una solicitud HTTP completa.</p>
+<h1 id="respuesta-http"><strong>RESPUESTA HTTP</strong></h1>
+<p>Cuando se hace una petición o solicitud HTTP al servidor, este intenta cumplir con la solicitud y enviar una respuesta al cliente. El servidor envía un <strong>código de respuesta</strong>, <strong>header</strong> y <strong>body</strong>.</p>
+<p>este envía unos códigos de respuesta estándares para determinar el estado de solicitud procesada.</p>
+<p>Los <strong>códigos de respuesta</strong> son números de tres dígitos para determinar el estado de solicitud procesada.</p>
+<p>Estos son los códigos de respuestas más frecuentes y están agrupados en <strong>intervalos de 100</strong>.</p>
 <p><img src="images/cod-resp1.png" /></p>
 <p>👉 Los códigos entre <strong>200 y 299</strong> son los códigos que todos queremos ver como respuesta del servidor, porque indica que la petición fue enviada correctamente y el proceso tanto del cliente como el servidor salió todo bien.</p>
 <p>👉 Los códigos del <strong>300 al 399</strong> que da el servidor indica que un recurso fue movido temporal o permanentemente por alguna razón.</p>
 <p>👉 Los códigos del <strong>400 al 499</strong> que da el servidor indica que cliente hizo una petición que no existe o mal hecha. Por ejemplo hacer una petición a un sitio web que no existe.</p>
 <p>👉 Los códigos del <strong>500 a 599</strong>son errores que ocurren del lado del servidor, por ejemplo, cuando un servidor esta caído.</p>
 <p><img src="images/cod-resp2.jpg" /></p>
-<p><strong>👉 CABECERAS EN PROTOCOLOS HTTP</strong></p>
-<p>Las cabeceras es un espacio destinado para enviar metadata en la petición HTTP, por ejemplo, enviar tokens de autenticación.</p>
-<p><strong>👉 FORMATO JSON</strong></p>
+<h1 id="formato-json"><strong>FORMATO JSON</strong></h1>
 <p><strong>JSON</strong> son las siglas de JavaScript Object Notation. JSON se ha convertido en la forma principal en que los datos se transportan a través de las API. La mayoría de las API enviarán sus respuestas en formato JSON. JSON tiene el formato de una serie de pares clave-valor entre llaves:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">    <span class="st">&quot;name&quot;</span>: <span class="st">&quot;Francisco&quot;</span>,</a>
 <a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;last_name&quot;</span>: <span class="st">&quot;Zambrano&quot;</span></a>
 <a class="sourceLine" id="cb1-4" title="4"><span class="kw">}</span></a></code></pre></div>
 <p><img src="images/json.jpg" /></p>
-<p><strong>👉 QUE ES POSTMAN?</strong></p>
+<h1 id="api-key"><strong>API KEY</strong></h1>
+<p>La <strong>API Key Authentication</strong> es un código que se utiliza para identificar y autenticar una aplicación o un usuario. También actúan como un identificador único y proporcionan un token secreto con fines de autenticación.</p>
+<p>Las claves de API se utilizan comúnmente para controlar la utilización de la interfaz de la API y realizar un seguimiento de cómo se utiliza. Esto suele ser una medida de precaución para evitar abusos o usos malintencionados.</p>
+<p>Cuando el cliente se autentica con la clave API, el servidor sabe que debe permitir el acceso del cliente a los datos, limitando las funciones administrativas.</p>
+<p>En muchas ocaciones se coloca la clave en el encabezado de la Autorización. Otro forma, es agregar la clave a la URL por ejemplo:</p>
+<p><strong><code>http://example.com?api_key=my_secret_key</code></strong></p>
+<h1 id="endpoints"><strong>ENDPOINTS</strong></h1>
+<p>Todo lo que hay en la web son <strong>recursos</strong>. Por ejemplo, cuando accedemos a una pagina web le solicitamos al servidor que nos envie el <code>index.html</code>(es un recurso), index.html internamente solicita el <code>styles.css</code> (otro recurso), las imágenes de la pagina web tambien son recursos.</p>
+<p>Una característica importante en las API es que cada recurso debe tener una <strong>URL única</strong> y que cada recurso esté representado por un formato especifico (xml, json, jpg, etc) pero puede cambiar de formato tambien.</p>
+<p>Cuando los desarrolladores diseñan una <strong>API REST</strong> asigan cada recurso a una <strong>URL</strong>.</p>
+<p>En una API REST típica, un recurso tendrá dos patrones de URL asignados:</p>
+<p>El primer patrón es el plural del nombre del recurso, como <strong><code>/orders</code></strong>.</p>
+<p>El segundo patrón es el plural del nombre del recurso más un identificador único para especificar un recurso único, como <strong><code>/orders/&lt;order_id&gt;</code></strong>, donde <code>&lt;order_id&gt;</code> es el identificador único de un pedido.</p>
+<p>Estos dos patrones de URL constituyen los primeros puntos finales (<strong>ENDPOINTS</strong>) que admitirá nuestra API.</p>
+<p>Estos se denominan puntos finales simplemente porque van al final de la URL, como en:</p>
+<p><strong><code>http://example.com/&lt;endpoint_goes_here&gt;</code></strong></p>
+<p>Ahora que le asignamos URL al recurso hay que indicar que acciones puede realizar el cliente mediante los verbos HTTP (GET, POST, PUT o DELETE) en la solicitud. Por ejemplo:</p>
+<ul>
+<li>GET/orders -&gt; Lista de pedidos</li>
+<li>POST/orders -&gt; Realizar un nuevo pedido</li>
+<li>GET/orders/1 -&gt; Obtener detalles para el pedido 1</li>
+<li>PUT/orders/1 -&gt; Actualizar pedido 1</li>
+<li>DELETE/orders/1 -&gt; Cancelar pedido 1</li>
+</ul>
+<h1 id="que-es-postman"><strong>QUE ES POSTMAN?</strong></h1>
 <p><img src="images/postman-logo.png" /></p>
 <p>Es una plataforma para testear APIs y crear APIs se puede usar de forma local en el computador o en la web.</p>
 <p><strong><a href="https://www.postman.com/" class="uri">https://www.postman.com/</a></strong></p>
 <p><strong>Postman echo</strong> es una API de Postman que sirve para aprender hacer solicitudes. Nos valemos de una URL la cual vamos a hacer peticiones al servidor.</p>
 <p><strong><a href="https://postman-echo.com" class="uri">https://postman-echo.com</a></strong></p>
-<p><strong>👉 HACIENDO PETICIONES CON POSTMAN</strong></p>
+<p><strong>HACIENDO PETICIONES CON POSTMAN</strong></p>
 <p>Como primer paso hay que crearse una cuenta en <strong>Postman</strong>, es muy facil y gratis.</p>
 <p>Luego, debe crear un espacio de trabajo en Postman en <strong>Create Workspace</strong>:</p>
 <p><img src="images/post1.PNG" /></p>
