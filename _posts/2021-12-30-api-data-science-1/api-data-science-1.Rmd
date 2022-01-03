@@ -24,29 +24,25 @@ output:
 **API**
 ==========================================
 
-Una **Interfaz de programación de aplicaciones**(**API**), es un conjunto de **subrutinas**, **funciones** y **procedimientos** (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con el. Las API REST son un tipo de API utilizadas en la WEB.
+Una **Interfaz de programación de aplicaciones**(**API**), es un conjunto de **subrutinas**, **funciones** y **procedimientos** (o métodos, en la programación orientada a objetos) que ofrece un software para que otro software pueda interactuar con el.
 
 ![](images/api edteam.jpg)
 
 **API REST**
 ==========================================
 
-Las **API REST** son un tipo de API específicas con el objetivo de garantizar una comunicación fluida entre el **cliente** y el **servidor**. Puede pensar en el cliente (**aplicaciones WEB** o **móviles**) como el **front-end** y el servidor como el **back-end**.
-
-La comunicación entre el cliente y el servidor no suele ser directa. Por lo tanto, se usa una interfaz (API) como intermediario entre el cliente y el servidor.
+Las **API REST** son un tipo de API específicas con el objetivo de garantizar una comunicación fluida entre el **cliente** y el **servidor**. Puede pensar en el cliente (**aplicaciones WEB** o **móviles**) como el **front-end** y el servidor como el **back-end**. En otras palabras, las API actúan como intermediario entre el cliente y el servidor.
 
 **REST** (Transferencia de Estado Representacional) es un estilo de arquitectura de software para guiar el diseño de arquitectura para la web.
 
-Las **API REST** se basan en el **protocolo HTTP (Hypertext Transfer Protocol)** para exponer su arquitectura.
-
-Cuando escribe **`http://example.com`** en un navegador, el **"http"** le dice al navegador que use las reglas de HTTP cuando se comunique con el servidor.
+Las **API REST** se basan en el **protocolo HTTP (Hypertext Transfer Protocol)** para exponer su arquitectura. Cuando escribe **`http://example.com`** en un navegador, el **"http"** le dice al navegador que use las reglas de HTTP cuando se comunique con el servidor.
 
 **PROTOCOLO HTTP**
 ==========================================
 
-Un protocolo es un conjunto de reglas a seguir, este caso, un **protocolo HTTP** es el protocolo de la web que permite intercambiar información en la web (CLIENTE – SERVIDOR) mediante un serie de **reglas estándares**.
+Un protocolo es un conjunto de reglas a seguir. El **protocolo HTTP** es el protocolo de la web que permite intercambiar información (CLIENTE – SERVIDOR) mediante un serie de **reglas estándares**.
 
-El **servidor** espera peticiones, si la petición del cliente contiene le protocolo correcto, entonces, el servidor devuelve la información solicitada.
+El **servidor** espera peticiones, si la petición del cliente contiene el protocolo correcto, entonces, el servidor devuelve la información solicitada.
 
 El **Protocolo Http** es un protocolo usado por la arquitectura API REST.
 
@@ -60,7 +56,7 @@ A continuación se listan los tipos de peticiones mas frecuentes:
 
 - **GET**
 
-Esta petición sirve para obtener información de parte del servidor. Por ejemplo: obtener listados de personas, películas, etc.
+Esta método sirve para obtener información de parte del servidor. Por ejemplo: obtener listados de personas, películas, imágenes, etc.
 
 - **POST**
 
@@ -101,8 +97,6 @@ Estas cuatro partes (URL, method, headers, y body) constituyen una solicitud HTT
 ==========================================
 
 Cuando se hace una petición o solicitud HTTP al servidor, este intenta cumplir con la solicitud y enviar una respuesta al cliente. El servidor envía un **código de respuesta**, **header** y **body**.
-
-este envía unos códigos de respuesta estándares para determinar el estado de solicitud procesada. 
 
 Los **códigos de respuesta** son números de tres dígitos para determinar el estado de solicitud procesada.
 
