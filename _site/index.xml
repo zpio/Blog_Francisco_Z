@@ -12,7 +12,18 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 31 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>APIs y Ciencia de Datos. Parte 2</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2022-01-14-api-data-science-2</link>
+      <description>Como consumir datos de una APIs en R</description>
+      <category>R</category>
+      <category>API</category>
+      <guid>https://francisco-data.netlify.app/posts/2022-01-14-api-data-science-2</guid>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2022-01-14-api-data-science-2/images/preview_api2.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>APIs y Ciencia de Datos. Parte 1</title>
       <dc:creator>Francisco Zambrano</dc:creator>
