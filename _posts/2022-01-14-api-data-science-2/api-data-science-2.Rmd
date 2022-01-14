@@ -209,7 +209,7 @@ Existen muchos sitios web donde encontran APIs gratuitas para probar y realizar 
 Conclusión
 ===========================================
 
-En este post vimos lo fácil y rápido que es consumir datos de una API y manipularlos para filtrarlos y conseguir cálculos estadísticos específicos.
+En este post vimos lo fácil y rápido que es consumir datos de una API para luego poder realizar Ciencia de Datos.
 
 
 
