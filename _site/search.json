@@ -6,14 +6,22 @@
       "description": "¡Bienvenido a mi blog sobre ciencia de datos!",
       "author": [],
       "contents": "\r\n¡Bienvenido a mi blog sobre ciencia de datos! Me gusta jugar con los datos e intentar comprender el mundo a través de la estadística y aprendizaje automático. Todo esto es posible con R y RStudio.\r\nMi perfil de Linkedin: https://www.linkedin.com/in/pfzambra/\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-14T13:17:44-05:00"
+      "last_modified": "2022-02-14T14:27:23-05:00"
     },
     {
       "path": "index.html",
       "title": "Blog sobre Data Science",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-01-14T13:17:46-05:00"
+      "last_modified": "2022-02-14T14:27:25-05:00"
+    },
+    {
+      "path": "projects.html",
+      "title": "Projects",
+      "description": "Proyectos de Ciencia de Datos",
+      "author": [],
+      "contents": "\r\n\r\n\r\n{\"x\":{\"tag\":{\"name\":\"Reactable\",\"attribs\":{\"data\":{\"Project\":[\"Matemática para Machine Learning en R\",\"Introducción a Git y GitHub\"],\"url\":[\"https://github.com/zpio/R-Math-Machine-Learning\",\"https://github.com/zpio/Intro-Git-GitHub\"],\"Description\":[\"Apuntes de Algebra Lineal y Cálculo en R\",\"Apuntes Introductorio de Git y GitHub\"]},\"columns\":[{\"accessor\":\"Project\",\"name\":\"Project\",\"type\":\"character\",\"cell\":[{\"name\":\"a\",\"attribs\":{\"href\":\"https://github.com/zpio/R-Math-Machine-Learning\"},\"children\":[\"Matemática para Machine Learning en R\"]},{\"name\":\"a\",\"attribs\":{\"href\":\"https://github.com/zpio/Intro-Git-GitHub\"},\"children\":[\"Introducción a Git y GitHub\"]}],\"minWidth\":150},{\"accessor\":\"url\",\"name\":\"url\",\"type\":\"character\",\"show\":false},{\"accessor\":\"Description\",\"name\":\"Description\",\"type\":\"character\",\"minWidth\":250}],\"searchable\":true,\"defaultPageSize\":2,\"paginationType\":\"numbers\",\"showPageInfo\":true,\"minRows\":1,\"theme\":{\"borderColor\":\"#dfe2e5\",\"stripedColor\":\"#f6f8fa\",\"highlightColor\":\"#f0f5f9\",\"cellPadding\":\"8px 12px\",\"style\":{\"fontFamily\":\"-apple-system, Lato, sans-serif\"}},\"dataKey\":\"5c2e9672bc8a2a3db86e6eca6a646e38\",\"key\":\"5c2e9672bc8a2a3db86e6eca6a646e38\"},\"children\":[]},\"class\":\"reactR_markup\"},\"evals\":[],\"jsHooks\":[]}\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-02-14T14:27:27-05:00"
     }
   ],
   "collections": ["posts/posts.json"]

@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="https://francisco-data.netlify.app/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -88,28 +87,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Francisco Z: Blog sobre Data Science</title>
+  <title>Francisco Z: Projects</title>
 
+  <meta property="description" itemprop="description" content="Proyectos de Ciencia de Datos"/>
 
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   <link rel="icon" type="image/png" href="images/favicon.png"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Francisco Z: Blog sobre Data Science"/>
+  <meta property="og:title" content="Francisco Z: Projects"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Proyectos de Ciencia de Datos"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Francisco Z"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Francisco Z: Blog sobre Data Science"/>
+  <meta property="twitter:title" content="Francisco Z: Projects"/>
+  <meta property="twitter:description" content="Proyectos de Ciencia de Datos"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Blog sobre Data Science"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Projects"]},{"type":"character","attributes":{},"value":["Proyectos de Ciencia de Datos"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2365,6 +2367,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   }</style>
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/core-js-2.5.3/shim.min.js"></script>
+  <script src="site_libs/react-17.0.0/react.min.js"></script>
+  <script src="site_libs/react-17.0.0/react-dom.min.js"></script>
+  <script src="site_libs/reactwidget-1.0.0/react-tools.js"></script>
+  <script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <script src="site_libs/reactable-binding-0.2.3/reactable.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2406,12 +2414,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Blog sobre Data Science","authors":[]}
+{"title":"Projects","description":"Proyectos de Ciencia de Datos","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2445,445 +2453,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).on("load", function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      page_category = decodeURIComponent(page_category)
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + decodeURIComponent(window.location.hash) + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption="Blog sobre Data Science">Blog sobre Data Science</h1>
-<a href="posts/2022-01-14-api-data-science-2/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","API"]}</script>
-<div class="metadata">
-<div class="publishedDate">Jan. 13, 2022</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2022-01-14-api-data-science-2/images/preview_api2.png"/>
-</div>
-<div class="description">
-<h2>APIs y Ciencia de Datos. Parte 2</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">API</div>
-</div>
-<p>Como consumir datos de una APIs en R</p>
-</div>
-</a>
-<a href="posts/2021-12-30-api-data-science-1/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","API","Postman"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 31, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-12-30-api-data-science-1/images/preview_api1.png"/>
-</div>
-<div class="description">
-<h2>APIs y Ciencia de Datos. Parte 1</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">API</div>
-<div class="dt-tag">Postman</div>
-</div>
-<p>Introducción a las APIs con Postman</p>
-</div>
-</a>
-<a href="posts/2021-12-27-docker-ds-part-4/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Docker","linux"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 27, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-12-27-docker-ds-part-4/images/preview_docker4.png"/>
-</div>
-<div class="description">
-<h2>Docker para Ciencia Datos. Parte 4</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Docker</div>
-<div class="dt-tag">linux</div>
-</div>
-<p>Como iniciar en el mundo de Docker para ciencia de datos</p>
-</div>
-</a>
-<a href="posts/2021-12-22-docker-ds-part-3/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Docker","Shinny","Heroku"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 23, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-12-22-docker-ds-part-3/images/preview_docker3.png"/>
-</div>
-<div class="description">
-<h2>Docker para Ciencia Datos. Parte 3</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Docker</div>
-<div class="dt-tag">Shinny</div>
-<div class="dt-tag">Heroku</div>
-</div>
-<p>Como implementar una Shiny App con Heroku y Docker</p>
-</div>
-</a>
-<a href="posts/2021-12-20-dockerizar-shiny/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Docker","Shinny"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 20, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-12-20-dockerizar-shiny/images/preview_docker2.png"/>
-</div>
-<div class="description">
-<h2>Docker para Ciencia Datos. Parte 2</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Docker</div>
-<div class="dt-tag">Shinny</div>
-</div>
-<p>Como dockerizar una Shiny App</p>
-</div>
-</a>
-<a href="posts/2021-12-14-docker-ds-part-1/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Docker","Shinny"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 14, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-12-14-docker-ds-part-1/images/preview_docker.png"/>
-</div>
-<div class="description">
-<h2>Docker para Ciencia Datos. Parte 1</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Docker</div>
-<div class="dt-tag">Shinny</div>
-</div>
-<p>Introducción de Docker para Ciencia de Datos</p>
-</div>
-</a>
-<a href="posts/2021-12-07-crea-tu-blog/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Distill","Git","Netlify"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 7, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-12-07-crea-tu-blog/images/preview_distill.png"/>
-</div>
-<div class="description">
-<h2>Crea tu blog con el paquete Distill de R</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Distill</div>
-<div class="dt-tag">Git</div>
-<div class="dt-tag">Netlify</div>
-</div>
-<p>Como crear tu propio blog con Distill, Git GitHub y desplegarlo con Netlify.</p>
-</div>
-</a>
-<a href="posts/2021-12-06-google-trends/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Google-Trends","gtrendsR","timetk"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 6, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-12-06-google-trends/images/preview_google.png"/>
-</div>
-<div class="description">
-<h2>Datos de Google Trends con gtrendsR</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Google-Trends</div>
-<div class="dt-tag">gtrendsR</div>
-<div class="dt-tag">timetk</div>
-</div>
-<p>gtrendsR proporciona una interfaz para obtener y mostrar información de Google Trends.</p>
-</div>
-</a>
-<a href="posts/2021-12-01-intro-git-github/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Git","GitHub"]}</script>
-<div class="metadata">
-<div class="publishedDate">Dec. 1, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-12-01-intro-git-github/imagenes/preview-git.png"/>
-</div>
-<div class="description">
-<h2>Apuntes de Introducción a Git y GitHub</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Git</div>
-<div class="dt-tag">GitHub</div>
-</div>
-<p>Apuntes introductorios de Git y GitHub</p>
-</div>
-</a>
-<a href="posts/2021-11-21-mapa-ecuador/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Highcharter","Mapa"]}</script>
-<div class="metadata">
-<div class="publishedDate">Nov. 21, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Francisco Zambrano</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-11-21-mapa-ecuador/images/preview_mapa.png"/>
-</div>
-<div class="description">
-<h2>Mapa del Ecuador con highcharter</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Highcharter</div>
-<div class="dt-tag">Mapa</div>
-</div>
-<p>Apuntes de graficación del mapa del Ecuador con la libreria highcharter de R.</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(10)</span>
-</li>
-<li>
-<a href="#category:API">API</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:Distill">Distill</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Docker">Docker</a>
-<span class="category-count">(4)</span>
-</li>
-<li>
-<a href="#category:Git">Git</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:GitHub">GitHub</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Google-Trends">Google-Trends</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:gtrendsR">gtrendsR</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Heroku">Heroku</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Highcharter">Highcharter</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:linux">linux</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Mapa">Mapa</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Netlify">Netlify</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Postman">Postman</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:R">R</a>
-<span class="category-count">(10)</span>
-</li>
-<li>
-<a href="#category:Shinny">Shinny</a>
-<span class="category-count">(3)</span>
-</li>
-<li>
-<a href="#category:timetk">timetk</a>
-<span class="category-count">(1)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Blog sobre Data Science</h1>
+<h1>Projects</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-
+<p><p>Proyectos de Ciencia de Datos</p></p>
 </div>
 
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<div id="htmlwidget-b2c3af6b9c603a89598d" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b2c3af6b9c603a89598d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Project":["Matemática para Machine Learning en R","Introducción a Git y GitHub"],"url":["https://github.com/zpio/R-Math-Machine-Learning","https://github.com/zpio/Intro-Git-GitHub"],"Description":["Apuntes de Algebra Lineal y Cálculo en R","Apuntes Introductorio de Git y GitHub"]},"columns":[{"accessor":"Project","name":"Project","type":"character","cell":[{"name":"a","attribs":{"href":"https://github.com/zpio/R-Math-Machine-Learning"},"children":["Matemática para Machine Learning en R"]},{"name":"a","attribs":{"href":"https://github.com/zpio/Intro-Git-GitHub"},"children":["Introducción a Git y GitHub"]}],"minWidth":150},{"accessor":"url","name":"url","type":"character","show":false},{"accessor":"Description","name":"Description","type":"character","minWidth":250}],"searchable":true,"defaultPageSize":2,"paginationType":"numbers","showPageInfo":true,"minRows":1,"theme":{"borderColor":"#dfe2e5","stripedColor":"#f6f8fa","highlightColor":"#f0f5f9","cellPadding":"8px 12px","style":{"fontFamily":"-apple-system, Lato, sans-serif"}},"dataKey":"5c2e9672bc8a2a3db86e6eca6a646e38","key":"5c2e9672bc8a2a3db86e6eca6a646e38"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
