@@ -12,7 +12,18 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Creando un Paquete en R desde cero</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2022-02-15-r-package-1</link>
+      <description>Como crear un sencillo paquete en R desde cero</description>
+      <category>R</category>
+      <category>Package</category>
+      <guid>https://francisco-data.netlify.app/posts/2022-02-15-r-package-1</guid>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2022-02-15-r-package-1/images/preview_package_1.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>APIs y Ciencia de Datos. Parte 2</title>
       <dc:creator>Francisco Zambrano</dc:creator>

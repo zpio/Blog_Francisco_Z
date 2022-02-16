@@ -1,0 +1,270 @@
+---
+title: "Creando un Paquete en R desde cero"
+description: |
+  Como crear un sencillo paquete en R desde cero
+author:
+  - name: Francisco Zambrano
+    url: https://www.linkedin.com/in/pfzambra/
+date: 2022-02-15
+categories:
+  - R
+  - Package
+preview: images/preview_package_1.png
+output: 
+  distill::distill_article:
+    highlight: haddock
+    highlight_downlit: false
+    self_contained: false
+    #toc: true
+---
+
+![](images/preview_package_1.png)
+
+**Disclaimer**: Sigo aprendiendo sobre la creacion de paquetes de R (no soy experto) y comparto con ustedes lo aprendido y me ha funcionado, los errores y las posibles soluciones.
+
+**Libros**: Recomiendo leer el libro **[R packages](https://r-pkgs.org/)** de Hadley Wickham & Jenny Bryan
+
+Introducción
+=========================================
+
+Vamos a crear un paquete sencillo en R llamado **`tsplot`** el cual solo tendrá una función llamada **`time_series_plot()`** que servirá para crear una gráfica de serie de tiempo sencilla de forma rápida e interactiva.
+
+Para el desarrollo de este paquete se utilizará los siguientes paquetes que son nuestra caja de herramientas: **`usethis`**,  **`devtools`**,  **`roxygen2`**,  **`ggplot2`** y  **`plotly`**.
+
+1. Crear el proyecto
+=========================================
+
+Voy a crear un paquete llamado **`tsplot`** dentro de la carpeta Documents. 
+
+Abra una sesión de Rstudio y ejecute en la consola lo siguiente para crear el proyecto: 
+
+
+```{r eval=FALSE}
+usethis::create_package("~/Documents/tsplot")
+```
+
+Este nuevo proyecto se abrirá en una nueva sesión con la estructura de archivos esenciales para la creación de paquetes en R.
+
+![](images/1.png)
+
+2. Primer Check
+=========================================
+
+Este check hace **verificaciones** de los metadatos, estructura, código R, documentación y mas. Puede tomar tiempo en ejecutarse. Este check hay que realizarlo con frecuencia.
+
+Ejecute en la consola de Rstudio del proyecto:
+
+```{r eval=FALSE}
+devtools::check()
+```
+
+![](images/2.png)
+Da como resultado una **advertencia**: el paquete necesita una **licencia** definida en el archivo **DESCRIPTION**.
+
+Le hacemos caso a la advertencia y agregamos una licencia MIT debido a los amplios permisos. Se actualizará automaticamente el archivo **DESCRIPTION** y crea dos nuevos archivos de licencia en el proyecto que nunca tendrá que tocar.
+
+```{r eval=FALSE}
+usethis::use_mit_license("Francisco Zambrano")
+```
+
+![](images/3.png)
+Los demás campos del archivo **DESCRIPTION** se pueden completar después.
+
+3. Segundo Check
+====================================
+
+Ejecutar nuevamente el check para verificar que no tengamos errores, advertencias o notas.
+
+```{r eval=FALSE}
+devtools::check()
+```
+
+![](images/4.png)
+
+**Nota**: En **Windows** al realizar el primer check aparece la siguiente Nota:
+
+```
+checking for future file timestamps ... NOTE
+  unable to verify current time
+```  
+  
+Para solucionar esto haremos lo siguiente:
+
+En la consola de Rstudio del proyecto ejecute lo siguiente: 
+
+```{r eval=FALSE}
+usethis::edit_r_environ()
+```
+
+para crear el archivo **`.Renviron`**, el cual se abrirá automáticamente y debe escribir:
+
+**`_R_CHECK_SYSTEM_CLOCK_=0`**
+
+Debe realizar otro check para verificar que se haya solucionado.
+
+
+4. Primera función
+==================================================
+
+Crearemos la función sencilla llamado **`time_series_plot`** para nuestro paquete, el cual graficará una serie de tiempo sencilla interactiva basado en ggplot2 y plotly. Esta función está inspirada en el paquete **`timetk`**.
+
+Primero hay que crear un archivo en la carpeta `R/` del proyecto donde escribiéremos la función. Es solo una convención crear el archivo R con el nombre de la misma función. 
+
+Ejecute lo siguiente:
+
+```{r eval=FALSE}
+usethis::use_r("time_series_plot")
+```
+
+Dentro del archivo creado copie, pegue y guarde la función.
+
+```{r eval=FALSE}
+time_series_plot <- function(df, date, value) {
+
+  g <- ggplot2::ggplot(df, ggplot2::aes(x= {{ date }}, y= {{ value }})) +
+    ggplot2::geom_line(color = "#007bff", size = 1)+
+    ggplot2::labs(title = "Time Series Plot")+
+    ggplot2::stat_smooth(color = "#2a4b70", fill = "#2a4b70",
+                         method = "loess", se = FALSE)+
+    ggplot2::theme_minimal()
+
+  plotly::ggplotly(g)
+
+}
+```
+
+
+![](images/5.png)
+
+Para utilizar ggplot2 en nuevos paquetes tiene algunas consideraciones que debe tomarse en cuenta:
+
+<https://ggplot2.tidyverse.org/articles/ggplot2-in-packages.html>
+
+
+5. Documentar la función
+=============================================
+
+Coloque el cursor en la definición de la función y luego vaya al menu Code y escoja la opción Insert Roxygen Skeleton.
+
+**`Code -> Insert Roxygen Skeleton`**
+
+![](images/6.png)
+
+Los tres argumentos en nuestra función **(df, date, value)** se detectaron automáticamente en el esqueleto de la documentación.
+
+Actualice la documentación poniendo una descripción a los parámetros, lo que retorna la funcion y un ejemplo.
+
+![](images/7.png)
+Ejecute lo siguiente para que R realice la documentación por nosotros. 
+
+```{r eval=FALSE}
+devtools::document()
+```
+
+En la carpeta **man** (manual) contiene un archivo **`time_series_plot.Rd`** con la documentación (no debe editar este archivo).
+
+El archivo **NAMESPACE** se editó automáticamente y ahora contiene que nuestro paquete exportará la función **`time_series_plot`**.
+
+![](images/8.png)
+
+Para obtener una vista de la documentación:
+
+```{r eval=FALSE}
+?time_series_plot
+```
+![](images/9.png)
+
+Si realiza nuevos cambios en la documentación debe volver a ejecutar:
+
+```{r eval=FALSE}
+devtools::document()
+```
+
+6. Tercer Check
+=========================================
+
+```{r eval=FALSE}
+devtools::check()
+```
+
+![](images/10.png)
+
+Ahora tenenos 1 error, 1 advertencia y 0 notas. Esto se debe que nuestra función depende de otros paquetes como ggplot2 y plotly. Para solucionar esto debemos especificar las **dependencias** de nuestro paquete.
+
+7. Dependencias
+===========================================
+
+**1. Dependencias de paquetes**
+
+Hay que especificar los **paquetes** que usamos en nuestra función en el archivo **DESCRIPTION**. Debemos ejecutar lo siguiente para que se edite el archivo automáticamente:
+
+```{r eval=FALSE}
+usethis::use_package("ggplot2")
+usethis::use_package("plotly")
+```
+
+![](images/11.png)
+
+**2. Funciones de los paquetes**
+
+Además de especificar los paquetes a usar, hay que especificar que funciones de estos paquetes utilizaremos, debido que no todas las funciones de ggplot2 o plotly vamos a usar.
+
+Una forma (porque hay varias formas) de especificar las funciones a usar es directamente en la definición de la funcion como lo hicimos en el paso 4 con la notación **`paquete::función`**.
+
+**`ggplot2::geom_line`** ,  **`plotly::ggplotly`** , etc.
+
+
+8. Cuarto check
+============================================
+
+Ejecutamos una vez mas el check y vemos que ya no hay errores ni advertencias.
+
+```{r eval=FALSE}
+devtools::check()
+```
+
+![](images/12.png)
+
+9. Instalando el paquete
+================================================
+
+Abrimos una nueva sesión de R y ejecutamos la funcion **`time_series_plot()`** como en el ejemplo de nuestra documentación:
+
+```{r eval=FALSE}
+# Para instalar paquete desde directorio local
+devtools::install("C:/Users/Tama/Documents/tsplot")
+
+# O para instalar desde GitHub
+remotes::install_github("zpio/tsplot")
+
+# Cargamos nuestra libreria tsplot
+library(tsplot)
+
+# Para usar el data set economics
+library(ggplot2)
+
+# Usamos la funcion según el ejemplo de la documentación
+time_series_plot(economics, date, unemploy)
+```
+
+![](images/fig.png)
+
+Para subir su paquete a GitHub le recomiendo leer mi blog sobre [Git y GitHub](https://francisco-data.netlify.app/posts/2021-12-01-intro-git-github/)
+
+
+Conclusión
+==================================
+
+Espero que se haya divertido como yo desarrollando su primer paquete en R y se anime a crear sus propios paquetes.
+
+
+
+
+
+
+
+
+
+
+
+
