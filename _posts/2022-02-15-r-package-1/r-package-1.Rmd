@@ -249,7 +249,12 @@ time_series_plot(economics, date, unemploy)
 
 ![](images/fig.png)
 
+10. Subir el paquete a GitHub
+================================================
+
 Para subir su paquete a GitHub le recomiendo leer mi blog sobre [Git y GitHub](https://francisco-data.netlify.app/posts/2021-12-01-intro-git-github/)
+
+En este [repositorio de mi GitHub](https://github.com/zpio/tsplot) está el paquete desarrollado en este blog.
 
 
 Conclusión
