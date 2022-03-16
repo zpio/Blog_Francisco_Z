@@ -12,7 +12,18 @@
       <link>https://francisco-data.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 15 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Trabajando con R y Python juntos</title>
+      <dc:creator>Francisco Zambrano</dc:creator>
+      <link>https://francisco-data.netlify.app/posts/2022-03-15-r-python</link>
+      <description>Trabajando con R y Python juntos</description>
+      <category>R</category>
+      <category>Python</category>
+      <guid>https://francisco-data.netlify.app/posts/2022-03-15-r-python</guid>
+      <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://francisco-data.netlify.app/posts/2022-03-15-r-python/images/preview.png" medium="image" type="image/png" width="1280" height="640"/>
+    </item>
     <item>
       <title>Creando un Paquete en R desde cero</title>
       <dc:creator>Francisco Zambrano</dc:creator>
