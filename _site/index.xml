@@ -17,7 +17,7 @@
       <title>Trabajando con R y Python juntos</title>
       <dc:creator>Francisco Zambrano</dc:creator>
       <link>https://francisco-data.netlify.app/posts/2022-03-15-r-python</link>
-      <description>Trabajando con R y Python juntos</description>
+      <description>Como integrar Python desde R con Reticulate</description>
       <category>R</category>
       <category>Python</category>
       <guid>https://francisco-data.netlify.app/posts/2022-03-15-r-python</guid>

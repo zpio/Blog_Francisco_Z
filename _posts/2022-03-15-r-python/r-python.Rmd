@@ -1,7 +1,7 @@
 ---
 title: "Trabajando con R y Python juntos"
 description: |
-  Trabajando con R y Python juntos
+  Como integrar Python desde R con Reticulate
 author:
   - name: Francisco Zambrano
     url: https://www.linkedin.com/in/pfzambra/
@@ -25,7 +25,7 @@ Descargar e Instalar Conda
 
 Vea la instrucciones de instalación: <https://docs.anaconda.com/anaconda/install/>
 
-Una vez instalado, siguientes pasos debe realizarse en la **terminal de anaconda** si eres usuario de **windows**.
+Una vez instalado Anaconda, siguientes pasos debe realizarse en la **terminal de anaconda**.
 
 Crear un nuevo entorno de Python
 ======================================
@@ -45,7 +45,7 @@ Para ver un **listado** de los entornos que hayamos creado ejecute el siguiente 
 ```bash
 conda list env
 ```
-Si ves **`py3.8`** en la lista es porque se creo correctamente.
+Si ves **`py3.8`** en la lista es porque se creó correctamente.
 
 Activar el entorno creado
 =====================================
@@ -109,7 +109,7 @@ Una vez realizado lo anterior podemos usar Python en RMarkdown o Shiny App.
 Python en RMarkdown
 ===========================================
 
-Primero hay que cargar el paquete **`reticulate`** para usar Python.
+Primero debe crear un nuevo documento RMarkdown y luego cargar el paquete **`reticulate`** para usar Python.
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -134,13 +134,13 @@ Verificar que reticulate esté usando el entorno py3.8 en R Markdown:
 py_config()
 ```
 
-Realizar la prueba en un chunk Python:
+Realizar la prueba en un **chunk** Python:
 
 ```{python}
 1 + 1
 ```
 
-Adicionalmente se puede convertir la consola de rstudio en consola de python. 
+Adicionalmente puede convertir la consola de rstudio en consola de python: 
 
 ```bash
 repl_python()
@@ -151,13 +151,15 @@ Use Esc para salir.
 Probando Numpy, Pandas y Matplotlib
 ================================================
 
+En el documento RMarkdown puede utilizar las funciones de Python mediante un **chunk** Python:
+
 ```{python}
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
 
-**Numpy**
+**Usando Numpy**
 
 ```{python}
 a = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
@@ -172,7 +174,7 @@ a.ndim
 a.shape
 ```
 
-**Pandas**
+**Usando Pandas**
 
 ```{python}
 df = pd.DataFrame(a)
@@ -188,7 +190,7 @@ data = pd.read_csv('pd.csv')
 print(data)
 ```
 
-**Matplotlib**
+**Usando Matplotlib**
 
 ```{python}
 b = np.array([2, 1, 5, 7, 4, 6, 8, 14, 10, 9, 18, 20, 22])
@@ -204,21 +206,23 @@ plt.show()
 ![](images/ptl1.png)
 
 
-Combinando R y Python
+Combinando Python y R
 ================================================
 
 Ahora instalaremos un paquete nuevo en nuestro entorno conda para extraer datos de las api de Yahoo Finance con Python para luego graficarlos con R
 
-Ejecutar en la terminal de anaconda en el entorno **`py3.8`**.
+Ejecutar en la **terminal de anaconda** en el entorno **`py3.8`**.
 
 ```bash
 conda install yfinance
 ```
 
-Cargamos la librerias de Python:
+Volviendo a nuestro documento RMarkdown cargamos la librerias de Python:
 
 ```{python}
 from datetime import date
+
+# Para descargar datos de Yahoo Finance
 import yfinance as yf
 ```
 
@@ -261,7 +265,7 @@ py$data %>%
 Scikit-Learn en RMarkdown
 ========================================
 
-Aplicamos un algoritmo KMeans de Scikit-Learn de Python.
+Ahora aplicaremos un algoritmo KMeans de Scikit-Learn de Python.
 
 ```python
 import numpy as np
